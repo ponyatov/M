@@ -1,0 +1,20 @@
+{
+
+    "python.pythonPath":              "./bin/python3",
+    "python.formatting.provider":     "autopep8",
+    "python.formatting.autopep8Path": "./bin/autopep8",
+    "python.formatting.autopep8Args": ["--ignore=E26,E302,E401,E402"],
+
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.f12",
+            "sequence": [
+                "workbench.action.files.saveAll",
+                {"command": "workbench.action.terminal.sendSequence","args": {"text": 
+                    "\u000Dmake\u000D"
+                }}
+            ]
+        },
+    ],
+    
+}
