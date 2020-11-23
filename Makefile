@@ -6,10 +6,23 @@ BIN = $(CWD)/bin
 
 PY  = $(BIN)/python3
 PIP = $(BIN)/pip3
+PYT = $(BIN)/pytest
+PEP = $(BIN)/autopep8
 
 .PHONY: all
 all: $(PY) $(MODULE).py
+	$(MAKE) pep
+	$(MAKE) test
 	$^
+
+.PHONY: test
+test: $(PYT) test_$(MODULE).py
+	$^
+
+.PHONY: pep
+pep: $(PEP) $(MODULE).py test_$(MODULE).py
+	$(PEP) -i      $(MODULE).py
+	$(PEP) -i test_$(MODULE).py
 
 .PHONY: install
 install: $(OS)_install
@@ -28,6 +41,8 @@ $(PY) $(PIP):
 	python3 -m venv .
 	$(PIP) install -U pip autopep8
 	$(PIP) install -U -r  requirements.pip
+$(PYT): $(PIP)
+	$< install -U pytest
 
 MERGE  = Makefile README.md apt.txt .gitignore .vscode 
 MERGE += $(MODULE).py test_$(MODULE).py requirements.pip

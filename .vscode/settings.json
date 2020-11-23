@@ -17,4 +17,16 @@
         },
     ],
     
+    "files.watcherExclude": {
+        "**/__pycache__/**": true,
+        "**/bin/**": true, "**/include/**": true, "**/lib*/**": true,
+        "**/share/**": true, "**/*.pyc": true, "**/pyvenv.cfg": true,
+    },
+
+    "files.exclude": {
+        "**/__pycache__/**": true,
+        "**/bin/**": true, "**/include/**": true, "**/lib*/**": true,
+        "**/share/**": true, "**/*.pyc": true, "**/pyvenv.cfg": true,
+    },
+
 }
